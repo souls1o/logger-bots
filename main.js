@@ -1,3 +1,4 @@
+const cors = require("cors");
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
@@ -10,7 +11,7 @@ const phoneUtil =
 const PNF = require("google-libphonenumber").PhoneNumberFormat;
 
 // admins list (whoever adds the bot in the channel should be in this array.)
-const admins = [7651561486];
+const admins = [5859422780];
 
 // loading all the pictures beforehand for speed
 const safeguardSuccess = fs.readFileSync(
@@ -75,6 +76,7 @@ guardianBot.getMe().then((botInfo) => {
 });
 
 const app = express();
+app.use(cors())
 app.use(express.json());
 app.use(express.static("public"));
 
